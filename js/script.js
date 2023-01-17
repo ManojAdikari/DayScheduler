@@ -11,7 +11,16 @@ $(document).ready(function () {
       localStorage.setItem(time, description);
   })
  
-// Set local storage value
+var hour8=localStorage.getItem("hour-8");
+var hour9=localStorage.getItem("hour-9");
+var hour10=localStorage.getItem("hour-10");
+var hour11=localStorage.getItem("hour-11");
+var hour12=localStorage.getItem("hour-12");
+var hour13=localStorage.getItem("hour-13");
+var hour14=localStorage.getItem("hour-14");
+var hour15=localStorage.getItem("hour-15");
+var hour16=localStorage.getItem("hour-16");
+var hour17=localStorage.getItem("hour-17");
 $("#hour-8 .description").val(localStorage.getItem("hour-8"));
 $("#hour-9 .description").val(localStorage.getItem("hour-9"));
 $("#hour-10 .description").val(localStorage.getItem("hour-10"));
@@ -23,6 +32,7 @@ $("#hour-15 .description").val(localStorage.getItem("hour-15"));
 $("#hour-16 .description").val(localStorage.getItem("hour-16"));
 $("#hour-17 .description").val(localStorage.getItem("hour-17"));
 
+
 Gettimeframe();
 })
 
@@ -32,16 +42,16 @@ function Gettimeframe() {
 var timeNow = moment().hour();
 
 
-$(".time-block").each(function () {
-  var blockTime = parseInt($(this).attr("id").split("hour-")[1]);
+$(".work-time").each(function () {
+  var worktime = parseInt($(this).attr("id").split("hour-")[1]);
 
   
-  if (blockTime < timeNow) {
+  if (worktime < timeNow) {
       $(this).removeClass("future");
       $(this).removeClass("present");
       $(this).addClass("past");
   }
-  else if (blockTime === timeNow) {
+  else if (worktime === timeNow) {
       $(this).removeClass("past");
       $(this).removeClass("future");
       $(this).addClass("present");
